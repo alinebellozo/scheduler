@@ -10,6 +10,19 @@ export default function DayListItem(props) {
     "day-list__item--full": props.spots === 0
   });
 
+  const formatSpots = (numOfSpots) => {
+    if (numOfSpots === 0) {
+      console.log("numOfSpots 1", numOfSpots);
+      return "no spots remaining";
+    }
+    if (numOfSpots === 1) {
+      console.log("numOfSpots 2", numOfSpots);
+      return "1 spot remaining";
+    }
+    console.log("numOfSpots 3", numOfSpots);
+    return `${numOfSpots} spots remaining`;
+  };
+
   return (
     <li className={dayClass} onClick={() => props.setDay(props.name)}>
       <h2 className="text--regular">{props.name}</h2>
