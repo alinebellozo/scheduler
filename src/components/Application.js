@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import DayList from "./DayList";
+import React from "react";
 
 import "components/Application.scss";
 
