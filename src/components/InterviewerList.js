@@ -1,17 +1,18 @@
 import React from "react";
-import "components/DayList.scss";
+import "components/InterviewerList.scss";
 
 export default function InterviewerList(props) {
   
   const interviewersAvailable = props.interviewers.map((interviewer) => {
-    return(
+    return (
       <InterviewerListItem
-        id={interviewer.id}
-        name={interviewer.name} 
+        key={interviewer.id}
+        name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === props.interviewer}
-        setInterviewer={props.setInterviewer}  />
-    )
+        setInterviewer={() => props.setInterviewer(interviewer.id)}
+      />
+    );
   })
   return (
     <section className="interviewers">
