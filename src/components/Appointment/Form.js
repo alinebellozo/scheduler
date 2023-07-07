@@ -13,20 +13,17 @@ export default function Form(props) {
           name="name"
           type="text"
           placeholder="Enter Student Name"
-          /*
-            This must be a controlled component
-            your code goes here
-          */
+          value={props.name}
         />
       </form>
       <InterviewerList 
-        /* your code goes here */
+        interviewers={props.interviewers} value={props.interviewer && props.interviewer.id}
       />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger >Cancel</Button>
-          <Button confirm >Save</Button>
+          <Button danger >{props.onCancel}</Button>
+          <Button confirm >{props.onSave}</Button>
         </section>
       </section>
     </main>
