@@ -9,7 +9,6 @@ import {
 } from "helpers/selectors";
 
 import "components/Application.scss";
-import { applyHooks } from "@storybook/addons";
 
 export default function Application(props) {
 
@@ -21,6 +20,24 @@ export default function Application(props) {
   });
 
   const setDay = (day) => setState({ ...state, day });
+
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    axios
+      .put(`/api/appointments/${id}`, appointment)
+      setState({ ...state, appointments });
+  }
 
   useEffect(() => {
     Promise.all([
@@ -51,6 +68,7 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={interviewers}
+        bookInterview={bookInterview}
       />
     );
   });
@@ -65,7 +83,7 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList days={state.days} value={state.day} setDay={setDay} />
+          <DayList days={state.days} day={state.day} setDay={setDay} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"

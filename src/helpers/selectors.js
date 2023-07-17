@@ -41,8 +41,8 @@ function getInterviewersForDay(state, day) {
     return results;
   }
 
-  for (let arr of filteredDay[0].appointments) {
-    results.push(state.appointments[arr]);
+  for (let arr of filteredDay[0].interviewers) {
+    results.push(state.interviewers[arr]);
   }
 
   return results;
