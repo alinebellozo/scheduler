@@ -8,7 +8,12 @@ import React from "react";
   The render function allows us to render Components
 */
 
-import { render, cleanup } from "@testing-library/react";
+import {
+  render,
+  cleanup,
+  waitForElement,
+  fireEvent,
+} from "@testing-library/react";
 
 /*
   We import the component that we are testing
@@ -22,6 +27,11 @@ afterEach(cleanup);
   A test that renders a React Component
 */
 
-it("renders without crashing", () => {
-  render(<Application />);
+it("defaults to Monday and changes the schedule when a new day is selected", () => {
+  const { getByText } = render(<Application />);
+
+  return waitForElement(() => getByText("Monday")).then(() => {
+    fireEvent.click(getByText("Tuesday"));
+    expect(getByText("Leopold Silvers")).toBeInTheDocument();
+  })
 });
