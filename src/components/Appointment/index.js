@@ -91,10 +91,10 @@ export default function Appointment(props) {
       )}
       {mode === DELETING && <Status message="Deleting..." />}
       {mode === ERROR_SAVE && (
-        <Error message="Error to save the interview" onClose={back} />
+        <Error message="Error saving the interview" onClose={back} />
       )}
       {mode === ERROR_DELETE && (
-        <Error message="Error to delete the interview" onClose={back} />
+        <Error message="Error deleting the interview" onClose={back} />
       )}
     </article>
   );
