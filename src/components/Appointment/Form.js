@@ -12,12 +12,8 @@ export default function Form(props) {
   const reset = () => {
     setStudent("");
     setInterviewer(null);
+    setError("");
   };
-
-  const save = (event) => {
-    event.preventDefault();
-    props.onSave(student, interviewer);
-  }
 
   const cancel = () => {
     reset();
@@ -34,7 +30,7 @@ export default function Form(props) {
       setError("Please select an interviewer");
       return;
     }
-
+ 
     setError("");
     props.onSave(student, interviewer);
   }
@@ -42,7 +38,7 @@ export default function Form(props) {
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off">
+        <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
             name="name"

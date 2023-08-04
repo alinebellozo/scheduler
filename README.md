@@ -6,6 +6,10 @@ Install dependencies with `npm install`.
 
 ## Running Webpack Development Server
 
+Go to https://github.com/alinebellozo/scheduler-api and clone the repo to your local machine;
+Open two terminals, one for the scheduler and the other for the scheduler-api;
+Type the following command on both terminals:
+
 ```sh
 npm start
 ```

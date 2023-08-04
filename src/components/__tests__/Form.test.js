@@ -15,7 +15,7 @@ describe("Form", () => {
     },
   ];
 
-  // In practice we prefer to be consistent and would most likely use the getByPlaceholderText in both tests
+  // it is preferred to be consistent and most likely use the getByPlaceholderText in both tests
 
   it("renders without student name if not provided", () => {
     const { getByPlaceholderText } = render(<Form interviewers={interviewers} />);
